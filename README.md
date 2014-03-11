@@ -11,7 +11,7 @@ Using this plugin requires Android PhoneGap. It has been successfully tested on 
 To install the plugin
 
 ```````html
-cordova plugin add https://github.com/antonioJASR/FileOpener.git
+cordova plugin add https://github.com/dmaus/FileOpener.git
 ```````
 
 Using the plugin
@@ -32,6 +32,9 @@ After you run the command above, Android device will either open the file with p
 
 RELEASE NOTES
 -------------
+March 11, 2014
+add basic failure callback
+
 November 6, 2013
 Support for Cordova 3
 add png mimetype
