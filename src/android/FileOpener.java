@@ -36,7 +36,12 @@ public class FileOpener extends CordovaPlugin {
 
             try {
                 if (action.equals("openFile")) {
-                    openFile(args.getString(0));
+                    if( openFile(args.getString(0))){
+                        
+                    }else{
+                        callbackContext.error("Could not open file");
+                    }
+                   
                 }
                 else {
                     status = PluginResult.Status.INVALID_ACTION;
@@ -53,7 +58,7 @@ public class FileOpener extends CordovaPlugin {
 
 
 
-    private void openFile(String url) throws IOException {
+    private boolean openFile(String url) throws IOException {
         // Create URI
         Uri uri = Uri.parse(url);
 
@@ -115,11 +120,20 @@ public class FileOpener extends CordovaPlugin {
         //so you can choose which application to use
 
 
-        else {            intent = new Intent(Intent.ACTION_VIEW);
+        else {            
+            intent = new Intent(Intent.ACTION_VIEW);
             intent.setDataAndType(uri, "*/*");
         }
 
-        this.cordova.getActivity().startActivity(intent);
+        try
+        {
+              this.cordova.getActivity().startActivity(intent);
+              return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
 }

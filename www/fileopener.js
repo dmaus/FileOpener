@@ -33,10 +33,11 @@ if (!window.plugins.fileOpener) {
 */
 
 
-var fileOpener = {
-    open : function (url) {
-         cordova.exec(null, null, "FileOpener", "openFile", [url]);
-    }
-};
+    var fileOpener = {
+        open : function (url, failureCB) {
+             cordova.exec(null, failureCB, "FileOpener", "openFile", [url]);
+        }
+    };
 
-module.exports = fileOpener;
+    module.exports = fileOpener;
+
