@@ -62,7 +62,8 @@ public class FileOpener extends CordovaPlugin {
         // Create URI
         Uri uri = Uri.parse(url);
         //Uri uri = Uri.fromFile(url)
-
+        Log.i("FileOpener uri", uri);
+        Log.i("FileOpener url", url);
         Intent intent = null;
         // Check what kind of file you are trying to open, by comparing the url with extensions.
         // When the if condition is matched, plugin sets the correct intent (mime) type,
