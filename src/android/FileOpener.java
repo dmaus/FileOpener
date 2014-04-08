@@ -60,8 +60,8 @@ public class FileOpener extends CordovaPlugin {
 
     private boolean openFile(String url) throws IOException {
         // Create URI
-        //Uri uri = Uri.parse(url);
-        Uri uri = Uri.fromFile(url)
+        Uri uri = Uri.parse(url);
+        //Uri uri = Uri.fromFile(url)
 
         Intent intent = null;
         // Check what kind of file you are trying to open, by comparing the url with extensions.
